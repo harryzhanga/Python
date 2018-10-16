@@ -2,9 +2,8 @@ def radixsort(lst):
   RADIX = 10
   maxLength = False
   tmp , placement = -1, 1
-
-  while not maxLength:
-    maxLength = True
+  maxInt = max(lst)
+  while placement > maxInt:
     # declare and initialize buckets
     buckets = [list() for _ in range( RADIX )]
 
@@ -12,9 +11,6 @@ def radixsort(lst):
     for i in lst:
       tmp = int((i / placement) % RADIX)
       buckets[tmp].append(i)
-
-      if maxLength and tmp > 0:
-        maxLength = False
 
     # empty lists into lst array
     a = 0
